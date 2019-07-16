@@ -1,0 +1,15 @@
+[general]
+ploidy = 1
+breakPointThreshold = 0.6
+window = 1000
+minExpectedGC = 0.3
+maxExpectedGC = 0.5
+telocentromeric = 6000
+step = 200
+chrFiles = /path/to/your/splitted/fasta
+chrLenFile = /path/to/your/fasta/fai
+[sample]
+inputFormat = BAM
+mateOrientation = FR
+[control]
+[target]
