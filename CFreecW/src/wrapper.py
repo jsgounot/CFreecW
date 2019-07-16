@@ -2,7 +2,7 @@
 # @Author: jsgounot
 # @Date:   2019-07-16 13:40:24
 # @Last modified by:   jsgounot
-# @Last Modified time: 2019-07-16 15:50:44
+# @Last Modified time: 2019-07-16 18:42:29
 
 import shutil, os, glob, copy
 from collections import defaultdict
@@ -20,6 +20,7 @@ def prepare_reference(reference, samtools) :
 	chrlenfile = index_reference(reference, samtools)
 
 	print ("makeRef done ...")
+	print ("ADD THIS TO YOUR CONFIGURATION FILE :")
 	print ("chrFiles =", outdir)
 	print ("chrLenFile =", chrlenfile)
 
