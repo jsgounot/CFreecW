@@ -8,7 +8,7 @@ With this wrapper, I tried to simplify how to run and to analyze CFreec results 
 Softwares dependancies :
 
 * [Control-Freec](http://boevalab.com/FREEC/index.html#downloads) (v. >= 11.5). Warning, previous version might not work at all !
-* samtools
+* [samtools](http://www.htslib.org/doc/samtools.html)
 
 For the python dependancies :
 
