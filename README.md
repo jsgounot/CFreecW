@@ -1,13 +1,13 @@
 # CFreecW : Python Control-Freec Wrapper 
 
-Control-Freec is a tool aiming to identify region with copy number variations. 
+[Control-Freec](http://boevalab.com/FREEC/) is a tool aiming to identify region with copy number variations. 
 With this wrapper, I tried to simplify how to run and to analyze CFreec results for simple whole genome data.
 
 ## Dependancies
 
 Softwares dependancies :
 
-* Control-Freec (v. >= 11.5). Warning, previous version might not work at all !
+* [Control-Freec](http://boevalab.com/FREEC/index.html#downloads) (v. >= 11.5). Warning, previous version might not work at all !
 * samtools
 
 For the python dependancies :
