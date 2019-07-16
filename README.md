@@ -1,4 +1,4 @@
-# CFreeW : Control-Freec python Wrapper 
+# CFreecW : Python Control-Freec Wrapper 
 
 Control-Freec is a tool aiming to identify region with copy number variations. 
 With this wrapper, I tried to simplify how to run and to analyze CFreec results for simple whole genome data.
@@ -13,10 +13,10 @@ Softwares dependancies :
 For the python dependancies :
 
 * Python v. >= 3.6
-* Fire : [Google CLI](https://github.com/google/python-fire)
-* Pandas : [DataFrame analysis](https://pandas.pydata.org/)
-* Biopython : [Fasta managing](https://biopython.org/)
-* PySegs : [Annotations comparison](https://github.com/jsgounot/PySegs)
+* [Fire](https://github.com/google/python-fire) : Google CLI
+* [Pandas](https://pandas.pydata.org/) : DataFrame analysis
+* [Biopython](https://biopython.org/) : Fasta managing
+* [PySegs](https://github.com/jsgounot/PySegs) : Bed files comparison
 
 ## CFreec configuration file
 
