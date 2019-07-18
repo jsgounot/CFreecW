@@ -1,7 +1,7 @@
 # CFreecW : Python Control-Freec Wrapper 
 
 [Control-Freec](http://boevalab.com/FREEC/) is a tool aiming to identify region with copy number variations. 
-With this wrapper, I tried to simplify how to run and to analyze CFreec results for simple whole genome data.
+With this wrapper, I tried to simplify how to produce and analyze CFreec results for simple whole genome data.
 
 ## Dependancies
 
@@ -52,3 +52,5 @@ Once your data are generated, you can compare regions with CNV (.bam_CNVs files)
 `python cfreecw.py compare2bed /path/to/your/bam.CNVs /path/to/your/bed ploidy`
 
 Similar to the previous step, you can use multiple cores but try first with only one. This command will compare regions found to your CNVs file to your annotations. By default a threshold of 50% if applied as the minimum coverage requiered for a feature to be determined as impacted by a region, you can change this behavior using the `min_coverage` parameter. You can also add a `fasta` which will add a new column with the distance of each feature with the closest telomere.
+
+Resulting file can be found in the same directory where the related CFreec results file has been given, with the suffix `compared.tsv`.
