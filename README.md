@@ -49,8 +49,16 @@ Other arguments are also available, see `help`. If this command works fine, you 
 
 Once your data are generated, you can compare regions with CNV (.bam_CNVs files) with annotations formatted within a bedfile using this command line :
 
-`python cfreecw.py compare2bed /path/to/your/bam.CNVs /path/to/your/bed ploidy`
+`python cfreecw.py compare2bed '/path/to/your/bam.CNVs' /path/to/your/bed ploidy`
 
 Similar to the previous step, you can use multiple cores but try first with only one. This command will compare regions found to your CNVs file to your annotations. By default a threshold of 50% if applied as the minimum coverage requiered for a feature to be determined as impacted by a region, you can change this behavior using the `min_coverage` parameter. You can also add a `fasta` which will add a new column with the distance of each feature with the closest telomere.
 
 Resulting file can be found in the same directory where the related CFreec results file has been given, with the suffix `compared.tsv`.
+
+### CNV matrix
+
+You can concatenate the copy number values of your resulting file into one single matrix using the `make_matrix` function :
+
+`python cfreecw.py make_matrix '/path/to/your/*.bam.compared.tsv' outfile --complete True --ncore 4`
+
+Complete option allows your matrix to contain either all the genes (if false) or only genes which have a gain or a loss in at least one strain. This matrix can be therefore used with [saturation function](https://github.com/jsgounot/PyPan#saturation-curve) available within the PyPan librairy. By default all gene name should be unique, however if multiple genes with the same name are found, an average value for each gene will be calculated.

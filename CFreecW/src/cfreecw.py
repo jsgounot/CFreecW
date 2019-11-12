@@ -2,7 +2,7 @@
 # @Author: jsgounot
 # @Date:   2019-07-16 12:39:18
 # @Last modified by:   jsgounot
-# @Last Modified time: 2019-07-16 17:41:16
+# @Last Modified time: 2019-11-12 19:11:03
 
 import fire
 import fanalyzer
@@ -70,6 +70,21 @@ class FManager(object) :
         """
 
         ranalyzer.compare2beds(cnv_files, bedfile, ploidy, min_coverage, fasta, ncore)
+
+    def make_matrix(self, compared_files, outfile, complete=True, ncore=1) :
+        """
+        Produce a matrix based on compared files
+        
+        Arguments:
+            compared_files {[str]} -- Compared files produced by the compare2bed function
+            outfile {[str]} -- Outfile for the matrix, a tsv file
+
+        Keyword Arguments:
+            complete {bool} -- Either if you want that the matrix contains all the genes (True, default) or just genes which have a loss or a gain in at least one strain (False)
+            ncore {number} -- Number of core to use (default: {1})
+        """
+
+        ranalyzer.make_matrix(compared_files, outfile, complete, ncore)
 
 if __name__ == '__main__' :
     fManager = FManager()

@@ -2,9 +2,9 @@
 # @Author: jsgounot
 # @Date:   2019-07-16 16:10:41
 # @Last modified by:   jsgounot
-# @Last Modified time: 2019-07-16 18:05:29
+# @Last Modified time: 2019-11-12 19:14:21
 
-import glob
+import glob, os
 from collections import defaultdict
 import numpy as np
 import pandas as pd
@@ -90,3 +90,22 @@ def compare2beds(cnv_files, bedfile, ploidy, min_coverage=50, fasta=None, ncore=
 
 	args = (processing.FunArgs(compare2bed, fname, annos, min_coverage, ploidy) for fname in fnames)
 	processing.mproc(args, ncore)
+
+def read_compared(compared_file) :
+	name = os.path.basename(compared_file)[:-22]
+	df = pd.read_csv(compared_file, sep="\t", index_col=0)
+	df["sample"] = name
+	return df
+
+def make_matrix(compared_files, outfile, complete=True, ncore=1) :
+	fnames = glob.glob(compared_files)
+	args = (processing.FunArgs(read_compared, fname) for fname in fnames)
+	df = processing.mproc(args, ncore)
+	df = pd.concat(df)
+
+	if not complete :
+		genes = set(df[df["CNK"].isin(("gain", "loss"))]["name"].unique())
+		df = df[df["name"].isin(genes)]
+
+	df = pd.pivot_table(df, index="name", columns="sample", values="CN")
+	df.to_csv(outfile, sep="\t")
